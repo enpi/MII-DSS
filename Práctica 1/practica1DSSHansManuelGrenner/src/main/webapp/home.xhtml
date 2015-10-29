@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+<h:body>
+
+<h:form>
+	<h2 style = "color : #{controladorMotor.colorTitulo}" > #{controladorMotor.textoTitulo} </h2>
+	
+	<h:commandButton id="onButton"
+		value = "#{controladorMotor.textoBotonOnOff}"
+		actionListener = "#{controladorMotor.actualizarBotonOnOff}"
+		style = "color : #{controladorMotor.colorBotonOnOff}">
+	</h:commandButton>
+	
+	<h:commandButton id="acelerarButton"
+		value = "Acelerar"
+		actionListener = "#{controladorMotor.actualizarBotonAcelerar}"
+		style = "color : #{controladorMotor.colorBotonAcelerar}">
+	</h:commandButton>
+	
+</h:form>
+
+</h:body>
+</html>
