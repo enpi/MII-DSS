@@ -1,4 +1,4 @@
-###Práctica 1
+##Práctica 1
 
 
 Utilizando el patrón arquitectónico  "Interceptor", desarrollar un diagrama de clases y programar un proyecto en Java y utilizando el marco de trabajo JSF para el tratamiento de eventos asíncronos.

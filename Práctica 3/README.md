@@ -1,6 +1,6 @@
-###Práctica 3
+##Práctica 3
 
-## Servicios Web y encapsulación de la persistencia
+### Servicios Web y encapsulación de la persistencia
 
 Un  servicio web que llamaremos 'CRUD' (Create, Read, Update, Delete), que ha de ser RESTful y que nos permitirá mantener una lista de objetos de un determinado dominio de libre elección (reseñas bibliográficas, catálogo de coches, etc..), pero que ha de incorporar imágenes y sonidos, en nuestra aplicación Web a través de llamadas HTTP.
 
