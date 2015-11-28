@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/jasny-bootstrap.min.css" rel="stylesheet">
+
+<link href="css/main.css" rel="stylesheet">
+</head>
+<body>	
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center">DSS P3 - Arquitecturas software</h1> 
+  </div>
+</div>
+
+<div class="container">
+
+
+<form class="form-horizontal" role="form" action="../practica3DSS/rest/todos" method="POST">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="id">ID:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="id" id="id" placeholder="Introduzca el ID">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="titulo">Titulo:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="titulo" id="titutlo" placeholder="Introduzca el titulo">
+    </div>
+  </div>
+    
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="anio">Anio:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="anio" id="anio" placeholder="Introduzca el año">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="genero">Genero:</label>
+  	<div class="col-sm-10">
+	  <select class="form-control" id="genero" name="genero">
+	  	<option>Accion</option>
+	    <option>Comedia</option>
+	    <option>Drama</option>
+	    <option>Miedo</option>
+	    <option>Fantasía</option>
+	    <option>Musical</option>
+	    <option>Guerra</option>
+	  </select>
+	  </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="director">Director:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="director" id="director" placeholder="Introduzca el director">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="actores">Actores:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="actores" id="actores" placeholder="Introduzca los actores">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="sinopsis">Sinopsis:</label>
+    <div class="col-sm-10">
+  		<textarea class="form-control" rows="5" id="sinopsis" name="sinopsis"></textarea>
+    </div>
+  </div>
+  
+  <!-- 
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="imagen">Imagen:</label>
+    <div class="col-sm-10">
+		<input type="file" class="file" id="imagen" name="imagen" accept="image/*">
+    </div>
+  </div>
+ 	!-->  
+  <div class="form-group">
+	  <label class="control-label col-sm-2" for="imagen">Imagen:</label>
+      <div class="col-sm-10">
+		  <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+			  	<div class="form-control" data-trigger="fileinput">
+			  		<i class="glyphicon glyphicon-file fileinput-exists"></i> 
+			  		<span class="fileinput-filename"></span>
+			  	</div>
+			  	<span class="input-group-addon btn btn-default btn-file">
+			  	<span class="fileinput-new">Seleccione un fichero</span>
+			  	<span class="fileinput-exists">Modificar</span>
+			  		<input type="file" class="file" id="imagen" name="imagen" accept="image/*">
+			  	</span>
+			  	<a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Borrar</a>
+		  </div>  
+	 	</div>
+  </div>
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" value="Submit">Submit</button>
+    </div>
+  </div>
+   
+</form>
+
+</div>
+
+<div id="footer">
+      <div class="container">
+        <p class="text-muted credit">Desarrollado por <a href="http://www.github.com/enpi">Hans-Manuel Grenner</a></p>
+      </div>
+</div>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  	<!-- <script src"js/jquery.min.js"></script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jasny-bootstrap.min.js"></script>
+	
+</body>
+</html>
+
