@@ -1,5 +1,7 @@
 package dss.practica3.modelo;
 
+import java.awt.Image;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -14,6 +16,8 @@ public class Todo{
 	private String director;
 	private String actores;
 	private String sinopsis;
+	private Image imagen;
+	private String img;
 	
 	public Todo(){
 	}
@@ -79,6 +83,24 @@ public class Todo{
 	public void setActores(String actores) {
 		this.actores = actores;
 	}
+	
+	
+	public Image getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(Image imagen) {
+		this.imagen = imagen;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
 	
 	
 }

@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -71,7 +72,8 @@ public class TodosResource {
 	
 	@POST
 	  @Produces(MediaType.TEXT_HTML)
-	  @Consumes(MediaType.MULTIPART_FORM_DATA)
+	  //@Consumes(MediaType.MULTIPART_FORM_DATA)
+	  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	  public void newTodo(@FormParam("id") String id,
 	      @FormParam("titulo") String titulo,
 	      @FormParam("anio") String anio,
@@ -93,18 +95,22 @@ public class TodosResource {
 	    	todo.setSinopsis(sinopsis);
 	    	
 	    }
+	    
 	    /*
 	    if(fileDetail !=null){
+	    	todo.setImagen(ImageIO.read(uploadedInputStream));
+	    
+	    	System.out.println("Imagen añadida.");
 	    	String uploadedFileLocation = "/home/iv-aerospace/Escritorio/" + fileDetail.getFileName();
 
 			// save it
 			writeToFile(uploadedInputStream, uploadedFileLocation);
 
-			String output = "File uploaded to : " + uploadedFileLocation;
-			todo.setImagen(uploadedFileLocation);
+			todo.setImg(uploadedFileLocation);
+	    	
 	    }
-	    */
-	    
+		*/
+	     
 	    TodoDao.INSTANCE.getModelo().put(id, todo);
 
 	    servletResponse.sendRedirect("../todo/res");
