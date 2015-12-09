@@ -11,9 +11,11 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -69,9 +71,10 @@ public class TodosResource {
 	    return String.valueOf(count);
 	  }
 	
-	
+	  
 	@POST
 	  @Produces(MediaType.TEXT_HTML)
+	  @Path("insert")
 	  //@Consumes(MediaType.MULTIPART_FORM_DATA)
 	  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	  public void newTodo(@FormParam("id") String id,
@@ -113,8 +116,73 @@ public class TodosResource {
 	     
 	    TodoDao.INSTANCE.getModelo().put(id, todo);
 
-	    servletResponse.sendRedirect("../todo/res");
+	    servletResponse.sendRedirect("../../index.html");
 	  }
+	
+	
+	  
+	  @POST
+	  @Produces(MediaType.TEXT_HTML)
+      @Path("update")
+	  //@Consumes(MediaType.MULTIPART_FORM_DATA)
+	  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	  public void updateTodo(@FormParam("id") String id,
+	      @FormParam("titulo") String titulo,
+	      @FormParam("anio") String anio,
+	      @FormParam("genero") String genero,
+	      @FormParam("director") String director,
+	      @FormParam("actores") String actores,
+	      @FormParam("sinopsis") String sinopsis,
+
+	      //@FormDataParam("imagen") InputStream uploadedInputStream,
+		  //@FormDataParam("imagen") FormDataContentDisposition fileDetail,
+		  
+	      @Context HttpServletResponse servletResponse) throws IOException{
+	    Todo todo = getTodo(id).getTodo();
+	    if (titulo !=null && anio != null && genero != null && director != null && actores != null && sinopsis != null ) {
+	    	todo.setTitulo(titulo);
+	    	todo.setAnio(anio);
+	    	todo.setGenero(genero);
+	    	todo.setDirector(director);
+	    	todo.setActores(actores);
+	    	todo.setSinopsis(sinopsis);
+	    	
+	    }
+	   
+	    
+	    /*
+	    if(fileDetail !=null){
+	    	todo.setImagen(ImageIO.read(uploadedInputStream));
+	    
+	    	System.out.println("Imagen añadida.");
+	    	String uploadedFileLocation = "/home/iv-aerospace/Escritorio/" + fileDetail.getFileName();
+
+			// save it
+			writeToFile(uploadedInputStream, uploadedFileLocation);
+
+			todo.setImg(uploadedFileLocation);
+	    	
+	    }
+		*/
+	     
+	    TodoDao.INSTANCE.getModelo().put(id, todo);
+
+	    servletResponse.sendRedirect("../../index.html");
+	  }
+	
+	
+	@POST
+    @Produces(MediaType.TEXT_HTML)
+	@Path("delete")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public void removeTodo(@FormParam("id") String id,			  
+		      @Context HttpServletResponse servletResponse) throws IOException{
+		
+				getTodo(id).deleteTodo();
+				
+			    servletResponse.sendRedirect("../../index.html");
+
+	}
 
 	  // Defines that the next path parameter after todos is
 	  // treated as a parameter and passed to the TodoResources
@@ -124,6 +192,8 @@ public class TodosResource {
 	  public TodoResource getTodo(@PathParam("todo") String id) {
 	    return new TodoResource(uriInfo, request, id);
 	  }
+	  
+	  
 	  
 	// save uploaded file to new location
 	private void writeToFile(InputStream uploadedInputStream,
