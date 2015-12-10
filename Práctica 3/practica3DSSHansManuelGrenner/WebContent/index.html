@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/jasny-bootstrap.min.css" rel="stylesheet">
+
+<link href="css/main.css" rel="stylesheet">
+</head>
+<body>	
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center">DSS P3 - Arquitecturas software</h1> 
+  </div>
+</div>
+
+<div class="container">
+
+<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="register-form-link">Insertar/Editar</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="delete-form-link">Mostrar/Eliminar</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+
+<form class="form-horizontal" id="register-form" role="form"  method="POST" >
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="id">ID:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="id" id="id" placeholder="Introduzca el ID">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="titulo">Titulo:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Introduzca el titulo">
+    </div>
+  </div>
+    
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="anio">Anio:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="anio" id="anio" placeholder="Introduzca el año">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="genero">Genero:</label>
+  	<div class="col-sm-10">
+	  <select class="form-control" id="genero" name="genero">
+	  	<option>Accion</option>
+	    <option>Comedia</option>
+	    <option>Drama</option>
+	    <option>Miedo</option>
+	    <option>Fantasía</option>
+	    <option>Musical</option>
+	    <option>Guerra</option>
+	  </select>
+	  </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="director">Director:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="director" id="director" placeholder="Introduzca el director">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="actores">Actores:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="actores" id="actores" placeholder="Introduzca los actores">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="sinopsis">Sinopsis:</label>
+    <div class="col-sm-10">
+  		<textarea class="form-control" rows="5" id="sinopsis" name="sinopsis"></textarea>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="imagen">Imagen:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="imagen" id="imagen" placeholder="Introduzca la URL de la imagen">
+    </div>
+  </div>
+ 
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success" formaction="../practica3DSSHansManuelGrenner/rest/todos/insert" value="Submit">Insertar</button>
+      <button type="submit" class="btn btn-warning" formaction="../practica3DSSHansManuelGrenner/rest/todos/update" value="Submit">Actualizar</button>
+    </div>
+  </div>
+   
+</form>
+
+  <div class="form-group">
+      <a href="../practica3DSSHansManuelGrenner/rest/todos"> <button  class="btn btn-info" style="margin-left: 90px">Mostrar todos </button></a>  
+	</div>
+
+<form class="form-horizontal" id="delete-form" role="form"  method="POST" >
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="id">ID:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="id" id="id" placeholder="Introduzca el ID">
+    </div>
+  </div>
+  
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary" formaction="../practica3DSSHansManuelGrenner/rest/todos/showImage" value="Submit">Mostrar Imagen</button>
+      <button type="submit" class="btn btn-danger" formaction="../practica3DSSHansManuelGrenner/rest/todos/delete" value="Submit">Borrar</button>
+    </div>
+  </div>
+
+</form>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="footer">
+      <div class="container">
+        <p class="text-muted credit">Desarrollado por <a href="http://www.github.com/enpi">Hans-Manuel Grenner</a></p>
+      </div>
+</div>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  	<!-- <script src"js/jquery.min.js"></script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jasny-bootstrap.min.js"></script>
+    
+<script>
+$(function() {
+    $('#register-form-link').click(function(e) {
+		$("#register-form").delay(100).fadeIn(100);
+ 		$("#delete-form").fadeOut(100);
+		$('#delete-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+    
+	$('#delete-form-link').click(function(e) {
+		$("#delete-form").delay(100).fadeIn(100);
+ 		$("#register-form").fadeOut(100);
+		$('#register-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+		
+	});
+</script>
+	
+</body>
+</html>
+
